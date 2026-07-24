@@ -1,1 +1,538 @@
-
+{
+    "title": "Macro Hunting",
+    "description": "",
+    "inputs": {
+        "input_global_trp": {
+            "options": {
+                "defaultValue": "-24h@h,now",
+                "token": "global_time"
+            },
+            "title": "Global Time Range",
+            "type": "input.timerange"
+        }
+    },
+    "defaults": {
+        "dataSources": {
+            "ds.search": {
+                "options": {
+                    "queryParameters": {
+                        "earliest": "$global_time.earliest$",
+                        "latest": "$global_time.latest$"
+                    }
+                }
+            }
+        },
+        "visualizations": {
+            "global": {
+                "showProgressBar": true
+            }
+        }
+    },
+    "visualizations": {
+        "viz_JRkRWWRJ": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_SD95JigP"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "majorColor": "#F59E0B",
+                "majorFontSize": 60,
+                "trendColor": "#3B82F6",
+                "trendFontSize": 16
+            },
+            "title": "Unique Affected Hosts",
+            "type": "splunk.singlevalue"
+        },
+        "viz_OvLLwEfv": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_acZBEsp3"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "majorColor": "#10B981",
+                "majorFontSize": 60,
+                "trendColor": "#10B981",
+                "trendFontSize": 16
+            },
+            "title": "Unique Affected Users",
+            "type": "splunk.singlevalue"
+        },
+        "viz_Y8oezeBv": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_Qc5tWpHq"
+            },
+            "options": {
+                "areaOpacity": 0.25,
+                "backgroundColor": "#272525",
+                "seriesColors": [
+                    "#3B82F6",
+                    "#00CDAF",
+                    "#DD9900",
+                    "#FF677B",
+                    "#CB2196",
+                    "#813193",
+                    "#0051B5",
+                    "#008C80",
+                    "#99B100",
+                    "#FFA476",
+                    "#FF6ACE",
+                    "#AE8CFF",
+                    "#00689D",
+                    "#00490A",
+                    "#465D00",
+                    "#9D6300",
+                    "#F6540B",
+                    "#FF969E",
+                    "#E47BFE"
+                ]
+            },
+            "title": "Suspicious Office Process Spawns Over Time",
+            "type": "splunk.area"
+        },
+        "viz_ZLYdO9ea": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_wzlfPkP1"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "tableFormat": {
+                    "align": "center",
+                    "headerAlign": "center",
+                    "headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+                    "headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)",
+                    "rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableAltRowBackgroundColorsByBackgroundColor)",
+                    "rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)"
+                }
+            },
+            "title": "Direct Network Connections from Office Processes",
+            "type": "splunk.table"
+        },
+        "viz_bR59ync1": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_sNrUYXX3"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "majorColor": "#7C3AED",
+                "majorFontSize": 60,
+                "trendFontSize": 50
+            },
+            "title": "Total Suspicious Macro Events",
+            "type": "splunk.singlevalue"
+        },
+        "viz_iWIzsgDq": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                6,
+                6,
+                6,
+                6
+            ],
+            "dataSources": {
+                "primary": "ds_zNHKs4oS"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "barSpacing": 0.35,
+                "legendDisplay": "off",
+                "legendMode": "seriesCompare",
+                "seriesColors": [
+                    "#F59E0B",
+                    "#009CEB",
+                    "#00CDAF",
+                    "#DD9900",
+                    "#FF677B",
+                    "#CB2196",
+                    "#813193",
+                    "#0051B5",
+                    "#008C80",
+                    "#99B100",
+                    "#FFA476",
+                    "#FF6ACE",
+                    "#AE8CFF",
+                    "#00689D",
+                    "#00490A",
+                    "#465D00",
+                    "#9D6300",
+                    "#F6540B",
+                    "#FF969E",
+                    "#E47BFE"
+                ],
+                "seriesSpacing": 0.25
+            },
+            "title": "Top Hosts/Users by Alert Count",
+            "type": "splunk.bar"
+        },
+        "viz_kFGX449S": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                },
+                "visibility": {
+                    "hideWhenNoData": true
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_QvMU8K4q"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "columnFormat": {
+                    "ChildProcess": {
+                        "width": 113
+                    },
+                    "CommandLine": {
+                        "width": 162
+                    },
+                    "ParentProcessId": {
+                        "width": 69
+                    },
+                    "ProcessId": {
+                        "width": 76
+                    }
+                },
+                "count": 50,
+                "headerVisibility": "fixed",
+                "tableFormat": {
+                    "align": "left",
+                    "headerAlign": "center",
+                    "headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+                    "headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)",
+                    "rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableAltRowBackgroundColorsByBackgroundColor)",
+                    "rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)"
+                }
+            },
+            "title": "Suspicious Command-Line Analysis",
+            "type": "splunk.table"
+        },
+        "viz_pVBn7gPE": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                },
+                "visibility": {
+                    "hideWhenNoData": true
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_awTAnzcT"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "count": 50,
+                "headerVisibility": "fixed",
+                "tableFormat": {
+                    "align": "left",
+                    "headerAlign": "center",
+                    "headerBackgroundColor": "> backgroundColor | setColorChannel(tableHeaderBackgroundColorConfig)",
+                    "headerColor": "> headerBackgroundColor | maxContrast(tableRowColorMaxContrast)",
+                    "rowBackgroundColors": "> table | seriesByIndex(0) | pick(tableAltRowBackgroundColorsByBackgroundColor)",
+                    "rowColors": "> rowBackgroundColors | maxContrast(tableRowColorMaxContrast)"
+                }
+            },
+            "title": "Office → LOLBin Parent-Child Pairs",
+            "type": "splunk.table"
+        },
+        "viz_pgsK2Pgr": {
+            "containerOptions": {
+                "description": {
+                    "color": "#94A3B8"
+                }
+            },
+            "cornerRadius": [
+                10,
+                10,
+                10,
+                10
+            ],
+            "dataSources": {
+                "primary": "ds_ZzNK3aDe"
+            },
+            "options": {
+                "backgroundColor": "#272525",
+                "majorColor": "#3B82F6",
+                "majorFontSize": 60,
+                "trendColor": "#3B82F6",
+                "trendFontSize": 16
+            },
+            "title": "Unique Affected Hosts",
+            "type": "splunk.singlevalue"
+        }
+    },
+    "dataSources": {
+        "ds_1YM7DbSb": {
+            "name": "Search_5",
+            "options": {
+                "query": "index=sysmon EventCode=3\r\n(\r\n    Image=\"*EXCEL.EXE\"\r\n    OR Image=\"*WINWORD.EXE\"\r\n    OR Image=\"*POWERPNT.EXE\"\r\n    OR Image=\"*OUTLOOK.EXE\"\r\n)\r\n\r\n| eval OfficeProcess=replace(Image,\"^.*\\\\\\\\\",\"\")\r\n\r\n| table _time ComputerName User OfficeProcess DestinationIp DestinationHostname DestinationPort Protocol Initiated\r\n\r\n| sort - _time"
+            },
+            "type": "ds.search"
+        },
+        "ds_PgiIv1ff": {
+            "name": "Unique Affected Hosts copy 1",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n| stats dc(ComputerName) AS \"Unique Affected Hosts\""
+            },
+            "type": "ds.search"
+        },
+        "ds_Qc5tWpHq": {
+            "name": "Search_1",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n| timechart span=1h count AS \"Office Child Processes\""
+            },
+            "type": "ds.search"
+        },
+        "ds_QvMU8K4q": {
+            "name": "Search_4",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n\r\n| eval ParentProcess=replace(ParentImage,\"^.*\\\\\\\\\",\"\")\r\n| eval ChildProcess=replace(Image,\"^.*\\\\\\\\\",\"\")\r\n\r\n| table _time ComputerName ParentUser ParentProcess ChildProcess CommandLine CurrentDirectory IntegrityLevel Hashes ProcessId ParentProcessId\r\n\r\n| sort - _time"
+            },
+            "type": "ds.search"
+        },
+        "ds_SD95JigP": {
+            "name": "Macro-Enabled Documents Detected",
+            "options": {
+                "query": "index=sysmon EventCode=11\r\n(\r\n    TargetFilename=\"*.docm\"\r\n    OR TargetFilename=\"*.dotm\"\r\n    OR TargetFilename=\"*.xlsm\"\r\n    OR TargetFilename=\"*.xltm\"\r\n    OR TargetFilename=\"*.potm\"\r\n    OR TargetFilename=\"*.pptm\"\r\n)\r\n| stats count AS \"Macro Documents\""
+            },
+            "type": "ds.search"
+        },
+        "ds_Vy4rywhk": {
+            "name": "Search_6",
+            "options": {
+                "query": "index=sysmon EventCode=11\r\n(\r\n    Image=\"*EXCEL.EXE\"\r\n    OR Image=\"*WINWORD.EXE\"\r\n    OR Image=\"*POWERPNT.EXE\"\r\n    OR Image=\"*OUTLOOK.EXE\"\r\n)\r\n\r\n| eval OfficeProcess=replace(Image,\"^.*\\\\\\\\\",\"\")\r\n\r\n| table _time ComputerName User OfficeProcess TargetFilename CreationUtcTime\r\n\r\n| sort - _time"
+            },
+            "type": "ds.search"
+        },
+        "ds_ZzNK3aDe": {
+            "name": "Unique Affected Hosts",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n| stats dc(ComputerName) AS \"Unique Affected Hosts\""
+            },
+            "type": "ds.search"
+        },
+        "ds_acZBEsp3": {
+            "name": "Unique Affected Users",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n| stats dc(ParentUser) AS \"Unique Affected Users\""
+            },
+            "type": "ds.search"
+        },
+        "ds_awTAnzcT": {
+            "name": "Search_3",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n\r\n| eval ParentProcess=replace(ParentImage,\"^.*\\\\\\\\\",\"\")\r\n| eval ChildProcess=replace(Image,\"^.*\\\\\\\\\",\"\")\r\n\r\n| stats count AS \"Execution Count\" by ParentProcess ChildProcess\r\n\r\n| sort -\"Execution Count\""
+            },
+            "type": "ds.search"
+        },
+        "ds_sNrUYXX3": {
+            "name": "Total Suspicious Macro Events",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n| stats count AS \"Suspicious Macro Events\""
+            },
+            "type": "ds.search"
+        },
+        "ds_wzlfPkP1": {
+            "name": "Search_7",
+            "options": {
+                "query": "index=sysmon EventCode=3\r\n(\r\n    Image=\"*powershell.exe\"\r\n    OR Image=\"*pwsh.exe\"\r\n    OR Image=\"*cmd.exe\"\r\n    OR Image=\"*wscript.exe\"\r\n    OR Image=\"*cscript.exe\"\r\n    OR Image=\"*mshta.exe\"\r\n    OR Image=\"*rundll32.exe\"\r\n    OR Image=\"*regsvr32.exe\"\r\n)\r\n\r\n| eval Process=replace(Image,\"^.*\\\\\\\\\",\"\")\r\n\r\n| table _time ComputerName User Process DestinationIp DestinationHostname DestinationPort Protocol Initiated\r\n\r\n| sort - _time"
+            },
+            "type": "ds.search"
+        },
+        "ds_zNHKs4oS": {
+            "name": "Search_2",
+            "options": {
+                "query": "index=sysmon EventCode=1\r\n(\r\n    ParentImage=\"*EXCEL.EXE\"\r\n    OR ParentImage=\"*WINWORD.EXE\"\r\n    OR ParentImage=\"*POWERPNT.EXE\"\r\n    OR ParentImage=\"*OUTLOOK.EXE\"\r\n)\r\n| stats count AS Alerts by ComputerName ParentUser\r\n| sort - Alerts"
+            },
+            "type": "ds.search"
+        }
+    },
+    "layout": {
+        "globalInputs": [
+            "input_global_trp"
+        ],
+        "layoutDefinitions": {
+            "layout_1": {
+                "options": {
+                    "backgroundColor": "#000000",
+                    "height": 960,
+                    "width": 1440
+                },
+                "structure": [
+                    {
+                        "item": "viz_bR59ync1",
+                        "position": {
+                            "h": 120,
+                            "w": 140,
+                            "x": 10,
+                            "y": 10
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_OvLLwEfv",
+                        "position": {
+                            "h": 120,
+                            "w": 140,
+                            "x": 10,
+                            "y": 140
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_pgsK2Pgr",
+                        "position": {
+                            "h": 120,
+                            "w": 140,
+                            "x": 160,
+                            "y": 10
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_Y8oezeBv",
+                        "position": {
+                            "h": 250,
+                            "w": 550,
+                            "x": 310,
+                            "y": 10
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_iWIzsgDq",
+                        "position": {
+                            "h": 250,
+                            "w": 560,
+                            "x": 870,
+                            "y": 10
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_pVBn7gPE",
+                        "position": {
+                            "h": 370,
+                            "w": 370,
+                            "x": 10,
+                            "y": 270
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_kFGX449S",
+                        "position": {
+                            "h": 370,
+                            "w": 1040,
+                            "x": 390,
+                            "y": 270
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_ZLYdO9ea",
+                        "position": {
+                            "h": 300,
+                            "w": 1420,
+                            "x": 10,
+                            "y": 650
+                        },
+                        "type": "block"
+                    },
+                    {
+                        "item": "viz_JRkRWWRJ",
+                        "position": {
+                            "h": 120,
+                            "w": 140,
+                            "x": 160,
+                            "y": 140
+                        },
+                        "type": "block"
+                    }
+                ],
+                "type": "absolute"
+            }
+        },
+        "options": {},
+        "tabs": {
+            "items": [
+                {
+                    "label": "New tab",
+                    "layoutId": "layout_1"
+                }
+            ]
+        }
+    },
+    "applicationProperties": {
+        "collapseNavigation": true
+    }
+}
